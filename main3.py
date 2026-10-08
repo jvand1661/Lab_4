@@ -11,14 +11,15 @@ with open("f1_points.csv", "r") as file:
         team_name = row["Team"]
         points = int(row["Points"])
 
-    if team_name not in teams:
-        teams[team_name] = Team(team_name)
+        if team_name not in teams:
+            teams[team_name] = Team(team_name)
 
-    driver = Driver(driver_name, points)
+        driver = Driver(driver_name, points)
 
-    teams[team_name].add_driver(driver)
+        teams[team_name].add_driver(driver)
 
 sorted_teams = sorted(teams.values())
 
-for team in sorted_teams:
-    print(team)
+if __name__ == "__main__":
+    for team in sorted_teams:
+        print(team)
